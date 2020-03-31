@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Speechtotext">
+
+
+
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/first"
+        android:weightSum="4"
+        >
+
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            style="@style/commonEdit_single_line"
+            android:id="@+id/num"
+            android:background="@color/black"
+            android:hint="Number"
+            android:inputType="numberSigned"
+            android:padding="5dp"
+            />
+
+
+        <Button
+            android:id="@+id/btnOpenPicker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_person_add_black_24dp"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
+            android:onClick="picknumber"
+            />
+
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        style="@style/commonEdit_multi_line"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/msg"
+        android:textColorHint="@color/colorPrimary"
+        android:hint="Enter your message"
+        android:layout_below="@+id/first"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnsend"
+        android:text="Send"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/msg"
+        android:gravity="center"
+        android:layout_marginTop="70dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Tap to Open Mic"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:onClick="btnspeech"
+        />
+
+</RelativeLayout>

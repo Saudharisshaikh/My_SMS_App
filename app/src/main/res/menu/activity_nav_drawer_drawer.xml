@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_inbox"
+            android:title="@string/menu_home" />
+
+        <item
+            android:id="@+id/voicesms"
+            android:title="Write SMS by Voice"
+            android:icon="@drawable/ic_keyboard_voice"/>
+
+
+        <item
+            android:id="@+id/readcsv"
+            android:icon="@drawable/ic_explore_black"
+            android:title="Read CSV" />
+        <item
+            android:id="@+id/schedule"
+            android:icon="@drawable/ic_fiber_smart_record_black_24dp"
+            android:title="Schedule SMS" />
+        <item
+            android:id="@+id/delay"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Delay SMS" />
+
+    </group>
+
+
+
+</menu>

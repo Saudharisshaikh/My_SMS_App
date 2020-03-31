@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RepeatSMS">
+
+
+
+   <ImageView
+       android:layout_marginTop="15dp"
+       android:layout_width="wrap_content"
+       android:layout_height="150dp"
+       android:src="@drawable/repeat"
+       />
+
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:weightSum="4"
+        >
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            style="@style/commonEdit_single_line"
+            android:id="@+id/num"
+            android:background="@color/my"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:layout_marginTop="10dp"
+            android:hint="Number"
+            android:inputType="numberSigned"
+            android:padding="5dp"
+            />
+
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_person_add_black_24dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@null"
+            android:onClick="picknumber"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+
+    <EditText
+        android:layout_marginBottom="20dp"
+        android:id="@+id/id_mymessage"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        style="@style/commonEdit_multi_line"
+        android:hint="Message"
+        android:background="@drawable/borderblue"
+        android:textColorHint="@color/my"
+        />
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter no of repeat of SMS"
+        android:id="@+id/repeatno"
+        android:textColorHint="@color/my"
+
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sendbutton"
+        android:text="Send"
+        android:textColor="@color/white"
+        android:background="@color/my"
+        android:layout_marginTop="20dp"
+        />
+
+</LinearLayout>
