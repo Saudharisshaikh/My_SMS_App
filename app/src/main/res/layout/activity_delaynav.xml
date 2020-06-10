@@ -8,27 +8,44 @@
     tools:context=".delaynav">
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Bulk SMS"
+        android:textColor="@color/white"
+        android:background="@color/my"
+        android:textAlignment="center"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        />
+
+
     <LinearLayout
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="10dp"
+        android:layout_marginTop="40dp"
         android:paddingTop="30dp"
         android:weightSum="4"
         >
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            style="@style/commonEdit_single_line"
-            android:id="@+id/num"
-            android:background="@color/black_background"
-            android:hint="Number"
-            android:inputType="numberSigned"
-            android:padding="5dp"
-            />
-
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="60dp"
+          android:text="Select Contact"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:background="@color/my"
+          android:textColor="@color/white"
+          android:layout_marginLeft="50dp"
+          android:padding="7dp"
+          />
 
         <ImageButton
             android:layout_width="0dp"
@@ -55,47 +72,33 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         style="@style/commonEdit_multi_line"
-        android:hint="Message"
+        android:layout_marginTop="40dp"
+        android:hint="Type your message..."
+        android:textColorHint="@color/my"
+        android:textColor="@color/my"
         android:background="@drawable/borderblue"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/delaytime"
-        android:inputType="number"
-        android:hint="Enter Delay Time "
-        />
+
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Send"
-        android:background="@drawable/buttoncurve"
+        android:background="@color/my"
         android:textColor="@color/white"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_gravity="center"
         android:id="@+id/send"
         />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttoncurve"
-        android:text="Add Number"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/white"
-        android:id="@+id/addnumber"
-        />
 
 
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/list"
-        >
 
-
-    </ListView>
 
 
 </LinearLayout>

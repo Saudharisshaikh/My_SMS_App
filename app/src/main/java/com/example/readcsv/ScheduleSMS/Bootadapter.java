@@ -19,7 +19,7 @@ import java.util.Date;
 
 import static android.content.Context.ALARM_SERVICE;
 
-public class BootAdapter extends BroadcastReceiver {
+public class Bootadapter extends BroadcastReceiver {
 
     String channel_id="sms_check";
 
@@ -31,9 +31,9 @@ public class BootAdapter extends BroadcastReceiver {
 
     String title="Failed to send message.";
     String summary="";
+
     @Override
     public void onReceive(Context context, Intent intent) {
-
 
         this.context=context;
 
@@ -66,6 +66,8 @@ public class BootAdapter extends BroadcastReceiver {
         helperDb.close();
         db.close();
 
+
+
     }
 
     private void check(int id, String msg, String num, long date) {
@@ -89,7 +91,7 @@ public class BootAdapter extends BroadcastReceiver {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(date);
 
-        Intent intentBoot = new Intent(context,AlarmBraodcast.class);
+        Intent intentBoot = new Intent(context, AlarmBroadcast.class);
         intentBoot.putExtra("id",id);
         intentBoot.putExtra("msg",msg);
         intentBoot.putExtra("num",num);
@@ -99,9 +101,12 @@ public class BootAdapter extends BroadcastReceiver {
         am.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),
                 PendingIntent.getBroadcast(context, id, intentBoot, PendingIntent.FLAG_UPDATE_CURRENT));
 
+
+
     }
 
     private void notifyFailure(int id, String msg) {
+
 
         if(msg.length()>25)
             msg=msg.substring(0,25)+"...";
@@ -123,7 +128,7 @@ public class BootAdapter extends BroadcastReceiver {
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setDefaults(Notification.DEFAULT_LIGHTS)
                 .setDefaults(Notification.DEFAULT_ALL);
-        Intent notificationIntent = new Intent(context, ScheduleMain.class);
+        Intent notificationIntent = new Intent(context, MainScheduleActivity.class);
         //notificationIntent.putExtra("noti",message);
         PendingIntent contentIntent = PendingIntent.getActivity(context, id, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(contentIntent);
@@ -136,7 +141,6 @@ public class BootAdapter extends BroadcastReceiver {
         //helperDb.close();
         //db.close();
 
-
-
     }
-}
+    }
+

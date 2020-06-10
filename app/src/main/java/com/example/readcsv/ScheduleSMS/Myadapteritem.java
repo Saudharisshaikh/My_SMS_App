@@ -10,20 +10,20 @@ import android.widget.TextView;
 import com.example.readcsv.R;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Myadapteritem extends ArrayAdapter<Myclassitem> {
 
 
-    public Myadapteritem(Context context, int resource, Myclassitem[] objects) {
+    public Myadapteritem(Context context, int resource, List<Myclassitem> objects) {
         super(context, resource, objects);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View v=convertView;
+     View v=convertView;
 
         if (v == null) {
             LayoutInflater vi;

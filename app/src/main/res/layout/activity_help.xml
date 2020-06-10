@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".help">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/commonEdit_multi_line"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/my"
+        android:textSize="15sp"
+        android:text="Voice SMS :  By using voice SMS you can type sms by your voice mic"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/my"
+        android:textSize="15sp"
+        style="@style/commonEdit_multi_line"
+        android:text="Schedule : By using schedule SMS you can schedule your SMS"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/my"
+        android:textSize="15sp"
+        style="@style/commonEdit_multi_line"
+        android:text="Delay SMS :By using Delay SMS you can send your SMS by some delay time"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/my"
+        android:textSize="15sp"
+        style="@style/commonEdit_multi_line"
+        android:text="On Ringer : By on ringer mode you can on ringer mode if it is silent mode .But your friend must have installed this app"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/my"
+        android:textSize="15sp"
+        style="@style/commonEdit_multi_line"
+        android:text="Repeat SMS : By using Repeat SMS feature of this app you can send same message multiple times."
+        />
+
+</LinearLayout>

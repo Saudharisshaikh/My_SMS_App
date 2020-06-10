@@ -11,10 +11,9 @@ import android.telephony.SmsManager;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.readcsv.MainActivity;
 import com.example.readcsv.R;
 
-public class AlarmBraodcast extends BroadcastReceiver {
+public class AlarmBroadcast extends BroadcastReceiver {
 
     String channel_id="sms_fire";
 
@@ -30,6 +29,7 @@ public class AlarmBraodcast extends BroadcastReceiver {
 
         this.context=context;
         createNotification(context,intent);
+
     }
 
     private void createNotification(Context context, Intent intent) {
@@ -67,7 +67,7 @@ public class AlarmBraodcast extends BroadcastReceiver {
                     .setDefaults(Notification.DEFAULT_VIBRATE)
                     .setDefaults(Notification.DEFAULT_LIGHTS)
                     .setDefaults(Notification.DEFAULT_ALL);
-            Intent notificationIntent = new Intent(context, MainActivity.class);
+            Intent notificationIntent = new Intent(context, MainScheduleActivity.class);
             //notificationIntent.putExtra("noti",message);
             notificationIntent.setAction(Intent.ACTION_MAIN);
             notificationIntent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -89,15 +89,17 @@ public class AlarmBraodcast extends BroadcastReceiver {
         helperDb.close();
         db.close();
 
-        if (ScheduleMain.getInstance()!=null){
+        if (MainScheduleActivity.getInstance()!=null){
 
-            ScheduleMain.getInstance().refresh();
+            MainScheduleActivity.getInstance().refresh();
         }
 
         if(MyEdittime.getInstance()!=null){
             if(id==MyEdittime.getInstance().g_id)
                 MyEdittime.getInstance().swt.setChecked(false);
         }
+
+
     }
 
     private void notifyFailure(int id, String msg) {
@@ -127,12 +129,11 @@ public class AlarmBraodcast extends BroadcastReceiver {
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setDefaults(Notification.DEFAULT_LIGHTS)
                 .setDefaults(Notification.DEFAULT_ALL);
-        Intent notificationIntent = new Intent(context, MainActivity.class);
+        Intent notificationIntent = new Intent(context, MainScheduleActivity.class);
         //notificationIntent.putExtra("noti",message);
         PendingIntent contentIntent = PendingIntent.getActivity(context, id, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(contentIntent);
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(id, builder.build());
     }
-    }
-
+}

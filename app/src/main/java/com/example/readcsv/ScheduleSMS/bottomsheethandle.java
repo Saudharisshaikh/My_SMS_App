@@ -31,9 +31,11 @@ public class bottomsheethandle extends BottomSheetDialogFragment{
         View view=inflater.inflate(R.layout.bottomsheetdialog,container,false);
 
         Button buttonmic=view.findViewById(R.id.mic);
-        Button buttoncsv=view.findViewById(R.id.mycsv);
+      //  Button buttoncsv=view.findViewById(R.id.mycsv);
         final Button buttonschedule=view.findViewById(R.id.myschedule);
         Button buttondelay=view.findViewById(R.id.mydelay);
+        Button buttonringer=view.findViewById(R.id.myringermode);
+        Button buttonrepeatsms=view.findViewById(R.id.myrepeatsms);
 
         buttonmic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,13 +45,7 @@ public class bottomsheethandle extends BottomSheetDialogFragment{
             }
         });
 
-        buttoncsv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                bottomSheetListener.Csv();
-            }
-        });
 
         buttonschedule.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +62,22 @@ public class bottomsheethandle extends BottomSheetDialogFragment{
             }
         });
 
+        buttonringer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                bottomSheetListener.ringermode();
+            }
+        });
+
+        buttonrepeatsms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                bottomSheetListener.repeatSMS();
+            }
+        });
+
         return  view;
 
     }
@@ -74,6 +86,8 @@ public class bottomsheethandle extends BottomSheetDialogFragment{
          void Csv();
          void Schedule();
          void delay();
+         void ringermode();
+         void repeatSMS();
     }
 
     @Override

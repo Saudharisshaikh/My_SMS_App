@@ -15,10 +15,7 @@
             android:icon="@drawable/ic_keyboard_voice"/>
 
 
-        <item
-            android:id="@+id/readcsv"
-            android:icon="@drawable/ic_explore_black"
-            android:title="Read CSV" />
+
         <item
             android:id="@+id/schedule"
             android:icon="@drawable/ic_fiber_smart_record_black_24dp"
@@ -27,6 +24,26 @@
             android:id="@+id/delay"
             android:icon="@drawable/ic_menu_send"
             android:title="Delay SMS" />
+
+        <item
+            android:id="@+id/ringermode"
+            android:icon="@drawable/ic_ring_volume_black_24dp"
+            android:title="Active Ringermode"
+        />
+
+        <item
+            android:id="@+id/RepeatSms"
+            android:icon="@drawable/ic_repeat24dp"
+            android:title="Repeat SMS"
+            />
+
+
+        <item
+            android:id="@+id/help"
+            android:icon="@drawable/ic_help_black_24dp"
+            android:title="Help"/>
+
+
 
     </group>
 

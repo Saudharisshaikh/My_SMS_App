@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".NavDrawer"
@@ -11,44 +12,119 @@
     >
 
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="My SMS APP"
-    android:textColor="@color/white"
-    android:textSize="40sp"
-    android:layout_gravity="center"
-    android:layout_marginTop="10dp"
-    android:background="@color/my"
-    />
 
-  <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:src="@drawable/emial"
-      />
 
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Push me"
+
+  <Button
+      android:layout_width="250dp"
+      android:layout_height="40dp"
+      android:text="Type SMS using Voice"
+      android:layout_marginTop="80dp"
+      android:background="@drawable/custombutton"
+      android:textColorHint="@color/white"
       android:textColor="@color/white"
-      android:textSize="30sp"
+      android:textSize="18sp"
+      android:inputType="text"
+      android:imeOptions="actionNext"
+      android:onClick="voiceclick"
+      android:id="@+id/voice"
       android:layout_gravity="center"
-      android:background="@color/my"
+      android:textStyle="bold"
+
       />
+
+  <Button
+      android:layout_width="250dp"
+      android:layout_height="40dp"
+      android:text="Schedule Your SMS"
+      android:id="@+id/schedule"
+      android:inputType="text"
+      android:layout_gravity="center"
+
+      android:textColor="@color/white"
+      android:layout_marginTop="20dp"
+      android:textSize="18sp"
+      android:background="@drawable/custombutton"
+      android:textColorHint="@color/white"
+      android:textStyle="bold"
+      android:onClick="scheduleclick"
+      />
+
+  <Button
+      android:layout_width="250dp"
+      android:layout_height="40dp"
+      android:text="Bulk SMS"
+      android:layout_gravity="center"
+      android:id="@+id/mobileno"
+      android:textSize="18sp"
+      android:textColor="@color/white"
+      android:layout_marginTop="20dp"
+      android:background="@drawable/custombutton"
+      android:onClick="ondelayclick"
+      android:textStyle="bold"
+      android:textColorHint="@color/white"
+      />
+  <Button
+      android:layout_width="250dp"
+      android:layout_height="40dp"
+      android:layout_gravity="center"
+      android:textSize="18sp"
+      android:text="Ringer mode"
+      android:id="@+id/ringermode"
+
+      android:textColor="@color/white"
+      android:layout_marginTop="20dp"
+      android:background="@drawable/custombutton"
+      android:onClick="onringermodeon"
+      android:textStyle="bold"
+      android:textColorHint="@color/white"
+      />
+
+  <Button
+      android:layout_width="250dp"
+      android:layout_height="40dp"
+      android:layout_gravity="center"
+      android:textSize="18sp"
+      android:text="Repeat SMS"
+      android:id="@+id/repeatsms"
+
+      android:imeOptions="actionDone"
+      android:textColor="@color/white"
+      android:layout_marginTop="15dp"
+      android:background="@drawable/custombutton"
+      android:onClick="RepeatSMS"
+      android:textStyle="bold"
+      android:textColorHint="@color/white"
+      />
+
+  <Button
+      android:layout_width="150dp"
+      android:layout_height="80dp"
+      android:layout_gravity="center"
+
+      android:textSize="18sp"
+      android:id="@+id/myguide"
+      android:textColor="@color/white"
+      android:layout_marginTop="40dp"
+      android:background="@drawable/guide"
+      android:onClick="myGuide"
+      android:textStyle="bold"
+      android:textColorHint="@color/white"
+      />
+
+
 
 
   <Button
       android:layout_width="100dp"
-      android:layout_height="wrap_content"
+      android:layout_height="100dp"
       android:id="@+id/mysheet"
       android:onClick="myownbottomsheet"
+      android:visibility="gone"
       android:layout_gravity="center"
       android:background="@drawable/belel"
       />
 
 
+  </LinearLayout>
 
-
-</LinearLayout>

@@ -32,6 +32,8 @@ public class Speechtotext extends AppCompatActivity {
 
     EditText editTextnum;
 
+    private  String myno;
+
     Button buttonsend;
 
     public String   mymsg;
@@ -42,6 +44,9 @@ public class Speechtotext extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speechtotext);
+
+        getSupportActionBar().setTitle("Speech To Text SMS");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         editText=findViewById(R.id.msg);
 
@@ -55,8 +60,8 @@ public class Speechtotext extends AppCompatActivity {
             public void onClick(View view) {
 
                 mymsg=editText.getText().toString();
-
-                if (mymsg.isEmpty()||no.isEmpty()){
+                myno=editTextnum.getText().toString();
+                if (mymsg.isEmpty()||myno.isEmpty()){
 
 
                     Toast.makeText(Speechtotext.this, "Message or Number is Empty", Toast.LENGTH_SHORT).show();
@@ -92,6 +97,8 @@ public class Speechtotext extends AppCompatActivity {
     }
 
     private void Getdata() {
+
+        no=editTextnum.getText().toString();
 
         SmsManager smsManager=SmsManager.getDefault();
         smsManager.sendTextMessage(no,null,mymsg,null,null);

@@ -1,14 +1,13 @@
 package com.example.readcsv.ScheduleSMS;
 
 public class Myclassitem {
-
     public Myclassitem() {
     }
 
     private static     int id;
     private static   String message,status,number;
 
-    private static long date;
+     private static long date;
 
     public int getId() {
         return id;

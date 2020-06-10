@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GuideActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/viewcheck"
+            android:orientation="vertical"
+            android:layout_margin="15dp">
+
+            <ImageView
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:src="@drawable/guide"
+                android:layout_marginTop="10dp"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="This Guide helps you to use each feature of this app."
+                android:textColor="@color/my"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                />
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               >
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="30dp"
+                   android:layout_marginLeft="20dp"
+                   android:src="@drawable/ic_keyboard_voice"
+                   />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Type SMS using Voice"
+                   android:layout_marginTop="30dp"
+                   android:layout_marginLeft="15dp"
+                   android:textSize="20sp"
+                   android:textColor="@color/my"
+                   />
+
+           </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_marginTop="10dp"
+                android:text="By Using this Type SMS using voice feature you can type your SMS using voice keyboard. To use this first we have to select contact. Then Tap to open mic and speak whatsoever you want to type .Then send your message. "
+                />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_fiber_smart_record_black_24dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Schedule SMS"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/my"
+                    />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_marginTop="10dp"
+                android:text="By Using this Schedule SMS feature of this app. We can schedule SMS at what time we want to send. To schedule SMS first we have to select contact from our phone. Then select the date and time , Type your message . Lastly On the switch to scheduler.. "
+                />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_send_black_24dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bulk SMS "
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/my"
+                    />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_marginTop="10dp"
+                android:text="By using this Bulk SMS feature . We can send same Message in bulk as many friend as we want . To use this first we have to select contacts whom we want to send same message. Then type message and sent it. "
+                />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_ring_volume_black_24dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ringer Mode"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/my"
+                    />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_marginTop="10dp"
+                android:text="By using this Ringer Mode we can send message to our friend and turn his phone silent mode to ringer mode. To use this we just select contact and no need to type SMS just click on send button."
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_repeat24dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Repeat SMS"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/my"
+                    />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_marginTop="10dp"
+                android:text="By using this Repeat SMS feature you can send same SMS multiple times.To use this we have to select contact and enter how many times we want to send message then type SMS and send it."
+                />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+        </LinearLayout>

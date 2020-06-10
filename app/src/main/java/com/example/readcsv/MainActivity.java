@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
    Button button;
     public static int postion=0;
 
+    public static  int ii=0;
+
     ColorDrawable [] Anmattioncolor={new ColorDrawable(Color.parseColor("#6bedfc")),
             new ColorDrawable(Color.parseColor("#c75cc1"))};
     ColorDrawable[] DefaultColors = {
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    inputStream=getResources().openRawResource(R.raw.mycsv);
+    inputStream=getResources().openRawResource(R.raw.ncsv);
         BufferedReader reader=new BufferedReader(new InputStreamReader(inputStream));
         try {
 
@@ -171,25 +173,33 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                permission();
+                //   permission();
 
 //                message = editTextmsg.getText().toString();
 
 
+                String ms = editTextmsg.getText().toString();
 
+                if (ms.isEmpty()||passtoother.isEmpty()) {
 
+                    Toast.makeText(MainActivity.this, "You don't select number in the list or message is empty.", Toast.LENGTH_SHORT).show();
+                } else {
+                    try {
+                        permission();
 
-                try {
-                    permission();
+                    } catch (Exception e) {
+
+                        Toast.makeText(MainActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+
 
                 }
-                catch (Exception e){
+            }
 
-                    Toast.makeText(MainActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
 
-                }
 
-                }
+
 
         });
 

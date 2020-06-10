@@ -2,6 +2,7 @@ package com.example.readcsv.ScheduleSMS;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,16 +19,16 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.readcsv.MainActivity;
-import com.example.readcsv.Myrecycleradapter;
 import com.example.readcsv.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ScheduleMain extends AppCompatActivity {
+public class MainScheduleActivity extends AppCompatActivity {
 
-    private static ScheduleMain obj;
+   public static MainScheduleActivity obj;
+
+   private Toolbar mToolbar;
 
     ArrayList<Myclassitem> arrayList;
     TextView txt_add;
@@ -41,59 +42,12 @@ public class ScheduleMain extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager2;
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.main,menu);
-
-        return true;
-
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        View view=getCurrentFocus();
-
-        if(view!=null){
-            InputMethodManager imm=(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(),0);
-        }
-
-
-        switch (item.getItemId()) {
-            case R.id.action_add_id:
-                Intent intent=new Intent(ScheduleMain.this,MyEdittime.class);
-                intent.putExtra("schedule","add");
-                startActivity(intent);
-                break;
-        }
-        return true;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        try {
-
-            //     get_list();
-
-            GetmyData();
-        }
-        catch (Exception e){
-
-            e.printStackTrace();
-
-            Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schedule_main);
+        setContentView(R.layout.activity_main_schedule);
+
+        getSupportActionBar().setTitle("Schedule SMS");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
         recyclerView2 =(RecyclerView)findViewById(R.id.recyclerviewmain);
@@ -103,22 +57,27 @@ public class ScheduleMain extends AppCompatActivity {
 
         obj=this;
 
+
         txt_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent=new Intent(ScheduleMain.this,MyEdittime.class);
+
+                Intent intent=new Intent(MainScheduleActivity.this,MyEdittime.class);
                 intent.putExtra("schedule","add");
                 startActivity(intent);
             }
         });
 
+
+
     }
 
-    public static ScheduleMain getInstance(){
+    public static MainScheduleActivity getInstance(){
 
         return obj;
     }
+
     public void refresh(){
 
         //      get_list();
@@ -126,8 +85,6 @@ public class ScheduleMain extends AppCompatActivity {
         GetmyData();
     }
 
-    private void GetmyData() {
-    }
 
     private void get_list() {
 
@@ -175,11 +132,94 @@ public class ScheduleMain extends AppCompatActivity {
         //  }
         //   else txt_add.setVisibility(View.GONE);
 
-        adapter2=new Myrecycleradapter(arrayList,ScheduleMain.this);
+        adapter2=new Myrecycleradapter(arrayList,MainScheduleActivity.this);
 
         recyclerView2.setHasFixedSize(true);
         recyclerView2.setLayoutManager(layoutManager2);
         recyclerView2.setAdapter(adapter2);
+
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+        try {
+
+            //     get_list();
+
+            GetmyData();
+        }
+        catch (Exception e){
+
+            e.printStackTrace();
+
+            Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        getMenuInflater().inflate(R.menu.main,menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        View view=getCurrentFocus();
+
+        if(view!=null){
+            InputMethodManager imm=(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(),0);
+        }
+
+
+        switch (item.getItemId()) {
+            case R.id.action_add_id:
+                Intent intent=new Intent(MainScheduleActivity.this,MyEdittime.class);
+                intent.putExtra("schedule","add");
+                startActivity(intent);
+                break;
+        }
+        return true;
+
+    }
+    public  void  GetmyData(){
+
+//        if(arrayList.size()==0) {
+        //    arrayList = new ArrayList<>();
+
+
+
+        helperDb = new Timedphelper(this);
+        db = helperDb.getReadableDatabase();
+
+        arrayList = helperDb.Alldata();
+
+        //Collections.shuffle(arrayList);
+
+        helperDb.close();
+
+        txt_add.setVisibility(View.VISIBLE);
+        //      }
+
+
+
+
+        adapter2 = new Myrecycleradapter(arrayList, MainScheduleActivity.this);
+
+        //           recyclerView2.setHasFixedSize(true);
+        recyclerView2.setLayoutManager(layoutManager2);
+        recyclerView2.setAdapter(adapter2);
+
+
 
 
 

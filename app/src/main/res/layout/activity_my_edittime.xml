@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ScheduleSMS.MyEdittime">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,6 +51,8 @@
                     android:id="@+id/num"
                     android:background="@color/black_background"
                     android:hint="Number"
+                    android:textColorHint="@color/my"
+                    android:textColor="@color/my"
                     android:inputType="numberSigned"
                     android:padding="5dp"
                     />
@@ -63,6 +64,7 @@
                     android:layout_weight="1"
                     android:src="@drawable/ic_person_add_black_24dp"
                     android:layout_gravity="center"
+
                     android:gravity="center"
                     android:background="@null"
                     android:onClick="picknumber"
@@ -86,6 +88,8 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:hint="Date:"
+                    android:textColor="@color/my"
+                    android:textColorHint="@color/my"
                     style="@style/commonText_output"
                     android:background="@drawable/borderblue"/>
 
@@ -96,6 +100,8 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:hint="Time:"
+                    android:textColorHint="@color/my"
+                    android:textColor="@color/my"
                     style="@style/commonText_output"
                     android:background="@drawable/borderblue"
                     />
@@ -111,6 +117,8 @@
                 android:layout_height="150dp"
                 style="@style/commonEdit_multi_line"
                 android:hint="Message"
+                android:textColorHint="@color/my"
+                android:textColor="@color/my"
                 android:background="@drawable/borderblue"/>
 
             <LinearLayout
@@ -131,10 +139,10 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="DELETE"
+                    android:visibility="gone"
                     style="@style/commonText_output"
-                    android:background="@drawable/buttoncurve"
-                    android:textColor="@color/white"/>
 
+                    android:textColor="@color/white"/>
 
                 <TextView
                     android:id="@+id/id_save"
@@ -144,8 +152,9 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="SAVE"
+                    android:visibility="gone"
                     style="@style/commonText_output"
-                    android:background="@drawable/buttoncurve"
+
                     android:textColor="@color/white"/>
 
 
@@ -155,5 +164,8 @@
 
 
     </ScrollView>
+
+
+
 
 </LinearLayout>

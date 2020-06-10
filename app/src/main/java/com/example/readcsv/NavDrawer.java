@@ -1,52 +1,28 @@
 package com.example.readcsv;
 
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 
-import com.example.readcsv.ScheduleSMS.ScheduleMain;
+import com.example.readcsv.ScheduleSMS.MainScheduleActivity;
 import com.example.readcsv.ScheduleSMS.bottomsheethandle;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.readcsv.SendSMSBroadcast.MainSendSMS;
 
-import android.os.Handler;
-import android.provider.ContactsContract;
-import android.speech.RecognizerIntent;
-import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
-import com.wafflecopter.multicontactpicker.ContactResult;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 
 import android.view.Menu;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Locale;
 
 public class NavDrawer extends AppCompatActivity
         implements
@@ -93,6 +69,7 @@ public class NavDrawer extends AppCompatActivity
         setContentView(R.layout.activity_nav_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("My SMS APP");
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -154,15 +131,13 @@ public class NavDrawer extends AppCompatActivity
 
             Intent intenth = new Intent(NavDrawer.this, Speechtotext.class);
             startActivity(intenth);
-        } else if (id == R.id.readcsv) {
+        }
 
-            Intent intentrsv = new Intent(NavDrawer.this, MainActivity.class);
-            startActivity(intentrsv);
 
-        } else if (id == R.id.schedule) {
+        else if (id == R.id.schedule) {
 
-            Intent intenth = new Intent(NavDrawer.this, ScheduleMain.class);
-            startActivity(intenth);
+            Intent intenth = new Intent(NavDrawer.this, MainScheduleActivity.class);
+           startActivity(intenth);
 
         }
         else if (id == R.id.delay) {
@@ -170,6 +145,27 @@ public class NavDrawer extends AppCompatActivity
             Intent intenth = new Intent(NavDrawer.this, delaynav.class);
             startActivity(intenth);
         }
+
+        else if (id==R.id.ringermode){
+
+            Intent intent=new Intent(NavDrawer.this, MainSendSMS.class);
+            startActivity(intent);
+        }
+
+        else if (id==R.id.RepeatSms){
+
+            Intent intent=new Intent(NavDrawer.this, MultiRepeatSMS.class);
+            startActivity(intent);
+        }
+
+
+        else if (id==R.id.help){
+
+            Intent intent=new Intent(NavDrawer.this,help.class);
+            startActivity(intent);
+
+        }
+
 /*
         else if (id == R.id.Repeat_SMS) {
 
@@ -201,7 +197,7 @@ public class NavDrawer extends AppCompatActivity
     @Override
     public void Schedule() {
 
-        Intent intent=new Intent(NavDrawer.this,ScheduleMain.class);
+        Intent intent=new Intent(NavDrawer.this,MainScheduleActivity.class);
         startActivity(intent);
     }
 
@@ -212,16 +208,65 @@ public class NavDrawer extends AppCompatActivity
         startActivity(intent);
     }
 
+    @Override
+    public void ringermode() {
+
+        Intent intent=new Intent(NavDrawer.this, MainSendSMS.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void repeatSMS() {
+
+        Intent intent=new Intent(NavDrawer.this,MultiRepeatSMS.class);
+        startActivity(intent);
+    }
+
     public void myownbottomsheet(View view) {
 
-
+/*
         bottomsheethandle bottomsheethandle=new bottomsheethandle();
                  bottomsheethandle.show(getSupportFragmentManager(),"My_Bottom_Sheet");
 
+*/
 
 
 
+    }
 
+    public void voiceclick(View view) {
+
+        Intent intent=new Intent(NavDrawer.this,Speechtotext.class);
+        startActivity(intent);
+    }
+
+    public void scheduleclick(View view) {
+
+        Intent intent=new Intent(NavDrawer.this, MainScheduleActivity.class);
+        startActivity(intent);
+    }
+
+    public void ondelayclick(View view) {
+
+        Intent intent=new Intent(NavDrawer.this,delaynav.class);
+        startActivity(intent);
+    }
+
+    public void onringermodeon(View view) {
+
+        Intent intent=new Intent(NavDrawer.this, MainSendSMS.class);
+        startActivity(intent);
+    }
+
+    public void RepeatSMS(View view) {
+
+        Intent intent=new Intent(NavDrawer.this,MultiRepeatSMS.class);
+        startActivity(intent);
+    }
+
+    public void myGuide(View view) {
+
+        startActivity(new Intent(NavDrawer.this,GuideActivity.class));
     }
 }
 

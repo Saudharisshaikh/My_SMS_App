@@ -1,4 +1,4 @@
-package com.example.readcsv;
+package com.example.readcsv.ScheduleSMS;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,14 +11,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.readcsv.ScheduleSMS.MyEdittime;
-import com.example.readcsv.ScheduleSMS.Myclassitem;
+import com.example.readcsv.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Myrecycleradapter extends RecyclerView.Adapter<Myrecycleradapter.RecyclerViewHolder> {
+
 
     public ArrayList<Myclassitem> arrayList=new ArrayList<>();
     Context context;
@@ -30,7 +30,8 @@ public class Myrecycleradapter extends RecyclerView.Adapter<Myrecycleradapter.Re
 
     @NonNull
     @Override
-    public Myrecycleradapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
 
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.listitems,parent,false);
         Myrecycleradapter.RecyclerViewHolder recyclerViewHolder=new Myrecycleradapter.RecyclerViewHolder(view);
@@ -40,12 +41,10 @@ public class Myrecycleradapter extends RecyclerView.Adapter<Myrecycleradapter.Re
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Myrecycleradapter.RecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
 
         final Myclassitem myclassitem = arrayList.get(position);
 
-
-        String tempmsgs= arrayList.get(position).getMessage();
 
         String temp_msg = myclassitem.getMessage();
         Log.i("----", "onBindViewHolder:  "+arrayList.get(position).getMessage());
@@ -74,9 +73,9 @@ public class Myrecycleradapter extends RecyclerView.Adapter<Myrecycleradapter.Re
                 long temp_date=myclassitem.getDate();
                 String temp_status=myclassitem.getStatus();
 
-                //  Toast.makeText(Myrecycleradapter.this,"no.:"+temp_num,Toast.LENGTH_LONG).show();
+              //  Toast.makeText(Myrecycleradapter.this,"no.:"+temp_num,Toast.LENGTH_LONG).show();
 
-                Intent intent=new Intent(context, MyEdittime.class);
+                Intent intent=new Intent(context,MyEdittime.class);
                 intent.putExtra("schedule","edit");
                 intent.putExtra("id",temp_id);
                 intent.putExtra("msg",temp_msg);
@@ -110,5 +109,6 @@ public class Myrecycleradapter extends RecyclerView.Adapter<Myrecycleradapter.Re
 
         }
     }
+
 
 }

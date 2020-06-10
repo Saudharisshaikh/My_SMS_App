@@ -42,24 +42,26 @@ public class delaynav extends AppCompatActivity {
     static String numb;
   //  Button buttonstop;
 
-
-
-    EditText editTextnum,editTextmsg;
+    ArrayList<PhoneNumber> phoneNumbers;
+    private static final int CONTACT_PICKER_REQUEST = 991;
+    private ArrayList<ContactResult> results = new ArrayList<>();
+ //   EditText editTextnum,
+       EditText     editTextmsg;
 
     static int i=0;
 
-    EditText Allnums;
+ //   EditText Allnums;
     Handler handler;
 
-    EditText mydelaytime;
+ //   EditText mydelaytime;
 
 
 
-    ListView mylist;
+ //   ListView mylist;
 
     Button buttonsend;
 
-    Button buttonaddnum;
+//    Button buttonaddnum;
 
     ArrayList<String> Allnos;
 
@@ -72,6 +74,8 @@ public class delaynav extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delaynav);
 
+        getSupportActionBar().setTitle("Bulk SMS");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         buttonsend=findViewById(R.id.send);
 
@@ -81,26 +85,27 @@ public class delaynav extends AppCompatActivity {
 
 //    buttonstart=findViewById(R.id.start);
         //  buttonstop=findViewById(R.id.stop);
-        mylist=findViewById(R.id.list);
-        Allnos=new ArrayList<>();
-        arrayAdapter=new ArrayAdapter<String>(delaynav.this,R.layout.support_simple_spinner_dropdown_item,Allnos);
-        mylist.setAdapter(arrayAdapter);
+//        mylist=findViewById(R.id.list);
+      //  Allnos=new ArrayList<>();
+    //    arrayAdapter=new ArrayAdapter<String>(delaynav.this,R.layout.support_simple_spinner_dropdown_item,Allnos);
+  //      mylist.setAdapter(arrayAdapter);
 
-        mydelaytime=findViewById(R.id.delaytime);
+     //   mydelaytime=findViewById(R.id.delaytime);
 
         handler=new Handler();
 
-        editTextnum=findViewById(R.id.num);
+    //    editTextnum=findViewById(R.id.num);
         editTextmsg=findViewById(R.id.id_msg);
 
         //   Allnums=findViewById(R.id.id_nums);
-        buttonaddnum=findViewById(R.id.addnumber);
+  //      buttonaddnum=findViewById(R.id.addnumber);
 
         runnable=new Runnable() {
             @Override
             public void run() {
 
 
+/*
                 String d=mydelaytime.getText().toString();
 
                 int delay=Integer.parseInt(d);
@@ -133,9 +138,44 @@ public class delaynav extends AppCompatActivity {
                     handler.postDelayed(this,del);
                     i++;
                 }
+                */
+
+
+
+                String message=editTextmsg.getText().toString();
+
+                if(i<results.size()){
+
+                    phoneNumbers= (ArrayList<PhoneNumber>) results.get(i).getPhoneNumbers();
+                    String num=phoneNumbers.get(0).getNumber();
+                    Toast.makeText(delaynav.this, "first if is called", Toast.LENGTH_SHORT).show();
+
+                    if(message.isEmpty()||num.isEmpty()){
+
+                        Toast.makeText(delaynav.this, "Please select  Numbers and Message field and delay time again ...", Toast.LENGTH_SHORT).show();
+
+                    }
+                    else{
+
+                        SmsManager smsManager=SmsManager.getDefault();
+
+                        smsManager.sendTextMessage(num,null,message,null,null);
+
+                        Toast.makeText(delaynav.this, ""+num+" "+message, Toast.LENGTH_SHORT).show();
+
+                        Log.d("----",""+num);
+
+                    }
+
+
+                    handler.postDelayed(this,2000);
+                    i++;
+
+                }
+
             }
         };
-
+/*
         buttonaddnum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,7 +187,7 @@ public class delaynav extends AppCompatActivity {
 
             }
         });
-
+*/
         buttonsend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -178,14 +218,39 @@ public class delaynav extends AppCompatActivity {
     }
 
     public void picknumber(View view) {
-
+/*
         Intent pick_intent = new Intent(Intent.ACTION_PICK);
         // BoD con't: CONTENT_TYPE instead of CONTENT_ITEM_TYPE
         pick_intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
         startActivityForResult(pick_intent, 1);
+*/
 
+
+
+        if (ContextCompat.checkSelfPermission(delaynav.this, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
+            new MultiContactPicker.Builder(delaynav.this) //Activity/fragment context
+                    .theme(R.style.MyCustomPickerTheme) //Optional - default: MultiContactPicker.Azure
+                    .hideScrollbar(false) //Optional - default: false
+                    .showTrack(true) //Optional - default: true
+                    .searchIconColor(Color.WHITE) //Optional - default: White
+                    .setChoiceMode(MultiContactPicker.CHOICE_MODE_MULTIPLE) //Optional - default: CHOICE_MODE_MULTIPLE
+                    .handleColor(ContextCompat.getColor(delaynav.this, R.color.colorPrimary)) //Optional - default: Azure Blue
+                    .bubbleColor(ContextCompat.getColor(delaynav.this, R.color.colorPrimary)) //Optional - default: Azure Blue
+                    .bubbleTextColor(Color.WHITE) //Optional - default: White
+                    .setTitleText("Select Contacts") //Optional - only use if required
+                    .setSelectedContacts(results) //Optional - will pre-select contacts of your choice. String... or List<ContactResult>
+                    .setLoadingType(MultiContactPicker.LOAD_ASYNC) //Optional - default LOAD_ASYNC (wait till all loaded vs stream results)
+                    .limitToColumn(LimitColumn.NONE) //Optional - default NONE (Include phone + email, limiting to one can improve loading time)
+                    .setActivityAnimations(android.R.anim.fade_in, android.R.anim.fade_out,
+                            android.R.anim.fade_in,
+                            android.R.anim.fade_out) //Optional - default: No animation overrides
+                    .showPickerForResult(CONTACT_PICKER_REQUEST);
+        }else{
+            Toast.makeText(delaynav.this, "Remember to go into settings and enable the contacts permission.", Toast.LENGTH_LONG).show();
+        }
     }
 
+    /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -215,8 +280,26 @@ public class delaynav extends AppCompatActivity {
         }
     }
 
+
     private void showSelectedNumber(int type, String number) {
 
-        editTextnum.setText(number.replaceAll("\\s",""));
+//        editTextnum.setText(number.replaceAll("\\s",""));
     }
-}
+    */
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == RESULT_OK) {
+            results.addAll(MultiContactPicker.obtainResult(data));
+            if(results.size() > 0) {
+                Log.d("MyTag", results.get(0).getDisplayName());
+            }
+        } else if(resultCode == RESULT_CANCELED){
+            System.out.println("User closed the picker without selecting items.");
+        }
+    }
+
+    }
+

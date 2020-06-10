@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/first"
+        android:layout_marginTop="60dp"
         android:weightSum="4"
         >
 
@@ -24,8 +25,11 @@
             android:layout_weight="3"
             android:layout_height="wrap_content"
             style="@style/commonEdit_single_line"
+            android:textColorHint="@color/my"
+            android:textColor="@color/my"
             android:id="@+id/num"
             android:background="@color/black"
+            android:layout_marginLeft="10dp"
             android:hint="Number"
             android:inputType="numberSigned"
             android:padding="5dp"
@@ -51,18 +55,23 @@
         style="@style/commonEdit_multi_line"
         android:layout_marginBottom="20dp"
         android:id="@+id/msg"
-        android:textColorHint="@color/colorPrimary"
+        android:textColorHint="@color/my"
+        android:textColor="@color/my"
         android:hint="Enter your message"
         android:layout_below="@+id/first"
+        android:layout_marginTop="40dp"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnsend"
         android:text="Send"
-        android:background="@color/colorPrimary"
+        android:background="@color/my"
         android:layout_below="@id/msg"
         android:gravity="center"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginTop="70dp"
         />
 
